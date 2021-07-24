@@ -1,4 +1,5 @@
 from sklearn.neural_network import MLPClassifier
+from sklearn.metrics import accuracy_score as ascr
 import matplotlib as plt
 import pandas as pd
 
