@@ -6,8 +6,9 @@ from matplotlib import pyplot as plt
 import pandas as pd
 
 enderecodata = '/home/bryanf/Documentos/Trab-IA-RNA/Trab-IA-RNA/Book.csv'
+#enderecodata = '/home/antonio/PycharmProjects/Trab-IA-RNA/Book.csv'
 datas = pd.read_csv(enderecodata)
-entradas = pd.read_csv(enderecodata, usecols=['PRECOS1', 'PRECOS2'])
+entradas = pd.read_csv(enderecodata, usecols=['PRECOS1', 'PRECOS2', 'PRECOS3'])
 
 entradas = entradas.values.tolist()
 saidas = pd.read_csv(enderecodata, usecols=['CODIGO'])
@@ -18,7 +19,7 @@ for i in saidas:
     saidaformatada.append(i[0])
 saidas = saidaformatada
 
-#print(entradas)
+print(entradas)
 #print(saidas)
 
 normalizador = StandardScaler()
@@ -40,7 +41,7 @@ saida_predicao = redeNeural.predict_proba(entradas)     #probabilidade de cada b
 saida_aux = np.argmax(saida_predicao, 1)
 acuracia = ascr(saidas, saida_aux)                      #taxa de acurácia do resutado para valor 1 e 2
 
-resultado = redeNeural.predict([[1511.41, 1511.41]])    #passando um valor qualquer para valor 1 e 2
+resultado = redeNeural.predict([[2073.68, 2451.37, 2337.3]])    #passando um valor qualquer para valor 1 e 2
 
 if resultado[0] == 1:
     bandeira = "Bandeira verde"
