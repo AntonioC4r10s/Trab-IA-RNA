@@ -31,7 +31,7 @@ redeNeural = MLPClassifier(verbose=False,
                            learning_rate_init=0.001, solver='sgd', hidden_layer_sizes=2)  # cria a RNA
 normalizador.fit(entradas)
 entradas = normalizador.transform(entradas)
-y = np.array(range(0,24,1))
+#y = np.array(range(0,24,1))
 #plt.plot(y, entradas)
 #plt.show()
 
