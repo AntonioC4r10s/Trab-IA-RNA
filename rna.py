@@ -19,14 +19,14 @@ for i in saidas:
     saidaformatada.append(i[0])
 saidas = saidaformatada
 
-print(entradas)
+#print(entradas)
 #print(saidas)
 
 normalizador = StandardScaler()
 
 redeNeural = MLPClassifier(verbose=False,
                            max_iter=400,
-                           tol=0.001,
+                           tol=0.7,
                            activation='logistic',
                            learning_rate_init=0.001, solver='sgd', hidden_layer_sizes=2)  # cria a RNA
 normalizador.fit(entradas)
@@ -41,7 +41,7 @@ saida_predicao = redeNeural.predict_proba(entradas)     #probabilidade de cada b
 saida_aux = np.argmax(saida_predicao, 1)
 acuracia = ascr(saidas, saida_aux)                      #taxa de acurácia do resutado para valor 1 e 2
 
-resultado = redeNeural.predict([[2073.68, 2451.37, 2337.3]])    #passando um valor qualquer para valor 1 e 2
+resultado = redeNeural.predict([[1613.08, 2065.15, 1890.91]])    #passando um valor qualquer para valor 1 e 2
 
 if resultado[0] == 1:
     bandeira = "Bandeira verde"
