@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 import pandas as pd
 
 enderecodata = '/home/bryanf/Documentos/Trab-IA-RNA/Trab-IA-RNA/Book.csv'
-#enderecodata = '/home/antonio/PycharmProjects/Trab-IA-RNA/Book.csv'
+#enderecodata = '/home/antonio/PycharmProjects/Trab-IA-RNA/src/Book.csv'
 datas = pd.read_csv(enderecodata)
 entradas = pd.read_csv(enderecodata, usecols=['PRECOS1', 'PRECOS2', 'PRECOS3'])
 
@@ -28,7 +28,7 @@ redeNeural = MLPClassifier(verbose=False,
                            max_iter=400,
                            tol=0.7,
                            activation='logistic',
-                           learning_rate_init=0.001, solver='sgd', hidden_layer_sizes=2)  # cria a RNA
+                           learning_rate_init=0.001, solver='sgd', hidden_layer_sizes=4)  # cria a RNA
 normalizador.fit(entradas)
 entradas = normalizador.transform(entradas)
 #y = np.array(range(0,24,1))
